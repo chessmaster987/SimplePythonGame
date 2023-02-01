@@ -14,7 +14,7 @@ screen = pygame.display.set_mode((width, height))
 # player square
 square_x = width // 2
 square_y = height // 2
-square_size = 50
+square_size = 20
 square_speed = 1
 
 # list to store circles
@@ -24,8 +24,8 @@ circles = []
 for i in range(5):
     x = random.randint(0, width - 50)
     y = random.randint(0, height - 50)
-    r = random.randint(20, 50)
-    circles.append([x, y, r, 0, 0, random.randint(1, 5)])
+    r = random.randint(20, 35)
+    circles.append([x, y, r, 0, 0, random.randint(1, 9)])
 
 # game loop
 running = True
@@ -71,6 +71,8 @@ while running:
             dy = -dy
         if r >= 50 or r <= 20:
             dr = -dr
+            dx = random.randint(-1, 1)
+            dy = random.randint(-1, 1)
         circles[i] = [x, y, r, dx, dy, dr]
         pygame.draw.circle(screen, (255, 0, 0), (x + r, y + r), r, 0)
 
