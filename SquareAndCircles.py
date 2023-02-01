@@ -1,5 +1,6 @@
 import pygame
 import random
+import pygame.font
 
 # initialize pygame
 pygame.init()
@@ -79,6 +80,17 @@ while running:
     # check collision with circles
     for x, y, r, _, _, _ in circles:
         if (square_x < x + 2 * r) and (square_x + square_size > x) and (square_y < y + 2 * r) and (square_y + square_size > y):
+            running = False
+        if (square_x < x + 2 * r) and (square_x + square_size > x) and (square_y < y + 2 * r) and (square_y + square_size > y):
+            # display "THE END" message
+            font = pygame.font.Font(None, 36)
+            text = font.render("THE END", True, (0, 0, 0))
+            text_rect = text.get_rect()
+            text_x = width // 2 - text_rect.width // 2
+            text_y = height // 2 - text_rect.height // 2
+            screen.blit(text, [text_x, text_y])
+            pygame.display.update()
+            pygame.time.wait(3000)
             running = False
 
     # update screen
