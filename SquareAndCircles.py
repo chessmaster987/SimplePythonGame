@@ -1,6 +1,6 @@
 import pygame
 import random
-import pygame.font
+import pygame.font 
 
 # initialize pygame
 pygame.init()
@@ -30,7 +30,12 @@ for i in range(5):
 
 # game loop
 running = True
+clock = pygame.time.Clock()
+fps = 1000
+time = 0
 while running:
+    start_time = clock.tick(fps)
+    time += start_time
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -78,12 +83,22 @@ while running:
         pygame.draw.circle(screen, (255, 0, 0), (x + r, y + r), r, 0)
 
     # check collision with circles
+    font = pygame.font.Font(None, 36)
     for x, y, r, _, _, _ in circles:
         if (square_x < x + 2 * r) and (square_x + square_size > x) and (square_y < y + 2 * r) and (square_y + square_size > y):
             running = False
+        if time >= 60000:  # 60 seconds.
+                # display "YOU WIN" message
+                text = font.render("YOU WIN!!!", True, (0, 0, 0))
+                text_rect = text.get_rect()
+                text_x = width // 2 - text_rect.width // 2
+                text_y = height // 2 - text_rect.height // 2
+                screen.blit(text, [text_x, text_y])
+                pygame.display.update()
+                running = False
+                pygame.time.wait(1000)
         if (square_x < x + 2 * r) and (square_x + square_size > x) and (square_y < y + 2 * r) and (square_y + square_size > y):
             # display "THE END" message
-            font = pygame.font.Font(None, 36)
             text = font.render("THE END", True, (0, 0, 0))
             text_rect = text.get_rect()
             text_x = width // 2 - text_rect.width // 2
@@ -92,7 +107,7 @@ while running:
             pygame.display.update()
             pygame.time.wait(3000)
             running = False
-
+        
     # update screen
     pygame.display.update()
 
