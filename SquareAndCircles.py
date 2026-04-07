@@ -33,9 +33,12 @@ running = True
 clock = pygame.time.Clock()
 fps = 1000
 time = 0
+font = pygame.font.Font(None, 36)
+
 while running:
     start_time = clock.tick(fps)
     time += start_time
+    remaining_time = max(0, 60 - time // 1000)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -63,6 +66,9 @@ while running:
     # fill screen with color
     screen.fill((255, 255, 255))
 
+    timer_text = font.render(f"Time: {remaining_time}", True, (0, 0, 0))
+    screen.blit(timer_text, (10, 10))
+
     # draw square
     pygame.draw.rect(screen, (0, 0, 0), (square_x, square_y, square_size, square_size))
 
@@ -83,7 +89,6 @@ while running:
         pygame.draw.circle(screen, (255, 0, 0), (x + r, y + r), r, 0)
 
     # check collision with circles
-    font = pygame.font.Font(None, 36)
     for x, y, r, _, _, _ in circles:
         if (square_x < x + 2 * r) and (square_x + square_size > x) and (square_y < y + 2 * r) and (square_y + square_size > y):
             running = False
