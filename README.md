@@ -1,34 +1,66 @@
-## Simple Python Game 🎮
+# Square vs Circles
 
-**A simple Python game using Pygame. Control the square and avoid the red circles. The goal is to survive 60 seconds to win.**
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Pygame](https://img.shields.io/badge/Pygame-Game%20Engine-green)
+![Type](https://img.shields.io/badge/project-arcade%20game-orange)
+![Platform](https://img.shields.io/badge/platform-desktop-lightgrey)
 
 ---
 
-## 🖥️ How to Play
+## 🎮 About the Game
 
-The ready-to-run executable is in the ```dist/``` folder:
+**Square vs Circles** is a simple 2D arcade game built with **Python and Pygame**.
 
-**Windows:**<br/>
-- Open the ```dist``` folder in the repository.
-- Run ```SquareAndCircles.exe```<br/>
-**Mac / Linux:**
-- Run the game using Python: ```python SquareAndCircles.py```
+You control a square and must survive while avoiding dynamically moving red circles.
 
-```Python ≥ 3.8``` and ```Pygame``` are required.
+---
+
+## 🎯 Objective
+
+- ⏳ Survive for **60 seconds** to win
+- ❌ Touch a red circle → **Game Over**
 
 ---
 
 ## 🕹️ Controls
-- Arrow Up — move up
-- Arrow Down — move down
-- Arrow Left — move left
-- Arrow Right — move right
 
-**💡 The square wraps around the screen edges.**
+- ⬅️ Arrow Left — move left  
+- ➡️ Arrow Right — move right  
+- ⬆️ Arrow Up — move up  
+- ⬇️ Arrow Down — move down  
+
+💡 The square wraps around screen edges
 
 ---
 
-## 🏆 Game Objective
-**Survive 60 seconds to win.
-The game ends if the square touches a red circle.**
+## 🚀 Download
 
+👉 [Download latest version](https://github.com/chessmaster987/SimplePythonGame/releases/latest)
+
+No installation required — just run the `.exe` file.
+
+---
+
+## ▶️ How to Run from Source
+
+```bash
+python SquareAndCircles.py
+```
+**Requirements:**
+- ```Python ≥ 3.8``` 
+- ```Pygame library```
+
+---
+
+## 🛠️ Features
+- 🎮 Simple and responsive controls
+- 🔴 Dynamic enemies (circles change size & movement)
+- ⏱️ Timer-based gameplay
+
+---
+
+## 📬 Contact
+
+If you have any questions or suggestions, feel free to contact me on LinkedIn:
+
+👉 [Send me a message](https://www.linkedin.com/in/vlad-lavrov)
